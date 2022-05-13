@@ -9,6 +9,8 @@ function Lista(props) {
             alert('Deu certo removi o usuario')
   
             window.location = "";
+
+            props.atualizarLista();
   
         }).catch( error => console.log(error));
   
