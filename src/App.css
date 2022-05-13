@@ -37,14 +37,15 @@
   }
 }
 
-.minhaTabela{
-  border: solid red 1px;
+.form-control {
+  margin-bottom: 10px;
 }
 
-.formulario{
-
-  margin-top:20px;
-  margin-bottom:20px;
-  
-
+.btn {
+  width: 100px;
+  margin-right: 10px;
 }
+
+
+
+

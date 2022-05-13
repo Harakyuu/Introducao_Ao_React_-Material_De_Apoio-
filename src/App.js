@@ -3,6 +3,8 @@ import './App.css';
 import axios from "axios";
 import Lista from './Lista.js';
 import { useEffect, useState } from "react";
+import 'bootstrap/dist/css/bootstrap.css';
+import Cartao from './Cartao.js';
 
 
 
@@ -84,33 +86,43 @@ useEffect(() => {
 
 
 return (
-    <div>
-      <form className="formulario" onSubmit={event => {
-          event.preventDefault();
-          if(id != ''){
-              atualizarUsuarioApi()
-          }else{
-              salvarFormulario();
-          }
-          return false;
-      } } > 
-      <label>Nome</label>
-      <input name="name" value={ nome }  onChange={ e => setNome(e.target.value) } />
-      <label>Email</label>
-      <input name="email" value={ email } onChange={ e => setEmail(e.target.value) } />
-      <label>senha</label>
-      <input name="password" value={ senha } onChange={ e => setSenha(e.target.value) } />
-      
-      <button type="submit">Enviar</button>
-      </form>
+    <div className='container'>
+        <Cartao titulo='Cadastro de usuario'>
+            <form className="formulario" onSubmit={event => {
+                event.preventDefault();
+                if(id != ''){
+                    atualizarUsuarioApi()
+                }else{
+                    salvarFormulario();
+                }
+                return false;
+            } } >
+                <div className='form-group'>
+                    <label>Nome</label>
+                    <input  className='form-control' name="name" value={ nome }  onChange={ e => setNome(e.target.value) } />
+                </div> 
+            
+                <div className='form-group'>
+                    <label>Email</label>
+                    <input className='form-control' name="email" value={ email } onChange={ e => setEmail(e.target.value) } />
+                </div>
+            
+                <div className='form-group'>
+                    <label>Senha</label>
+                    <input className='form-control' name="password" value={ senha } onChange={ e => setSenha(e.target.value) } />
+                </div>
 
-      <p>{ nome }</p>
-      <p>{ email }</p>
-      <p>{ senha }</p>
+                <button className='btn btn-primary' type="submit">
+                    <i class="bi bi-send-fill"></i>
+                </button>
+            </form>
+        </Cartao>
 
-      <Lista usuarios={usuarios} onEditar={usuario => atualizarUsuario(usuario)} atualizarLista={e => atualizarLista()}></Lista>
+        <Cartao titulo='Lista de usuarios'>
+            <Lista usuarios={usuarios} onEditar={usuario => atualizarUsuario(usuario)} atualizarLista={e => atualizarLista()}></Lista>
+        </Cartao>
 
-  </div>
+    </div>
     
     
 );
