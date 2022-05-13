@@ -102,7 +102,7 @@ return (
       <p>{ email }</p>
       <p>{ senha }</p>
 
-      <Lista usuarios={usuarios}></Lista>
+      <Lista usuarios={usuarios} onEditar={usuario => atualizarUsuario(usuario)}></Lista>
 
   </div>
     
