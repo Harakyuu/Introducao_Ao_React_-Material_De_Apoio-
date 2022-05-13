@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import axios from "axios";
+import Lista from './Lista.js';
 import { useEffect, useState } from "react";
 
 
@@ -100,34 +101,9 @@ return (
       <p>{ nome }</p>
       <p>{ email }</p>
       <p>{ senha }</p>
-      
-      <table className='minhaTabela'>
-          <thead>
-              <tr>
-              <th>ID</th>
-              <th>Nome</th>
-              <th>Email</th>
-              <th>Ações</th>
-              </tr>
-          
-          </thead>  
-          <tbody> 
-              { usuarios.map( usuario => {
-                  return (
-                      <tr key={usuario.id}>
-                          <td>{usuario.id}</td>
-                          <td>{usuario.name}</td>
-                          <td>{usuario.email}</td>
-                          <td>
-                              <button onClick={ event => atualizarUsuario(usuario) } > Editar </button>
-                              <button onClick={ event => removerUsuario(usuario.id) } > Deletar </button>
-                          </td>
-                          
-                      </tr>
-                      )
-              } ) }
-          </tbody>
-      </table>
+
+      <Lista usuarios={usuarios}></Lista>
+
   </div>
     
     
